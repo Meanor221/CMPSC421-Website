@@ -1,0 +1,24 @@
+{
+  "name": "cmpsc-421-website",
+  "version": "1.0.0",
+  "description": "student project",
+  "main": "webserver.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node webserver.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Meanor221/CMPSC421-Website.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Meanor221/CMPSC421-Website/issues"
+  },
+  "homepage": "https://github.com/Meanor221/CMPSC421-Website#readme",
+  "dependencies": {
+    "body-parser": "^1.14.2",
+    "express": "^4.13.4"
+  }
+}
