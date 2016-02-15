@@ -66,8 +66,9 @@ function threeregion(req, res) {
 
 app.get('/CloudChat/*', ChatServer.gettool);
 app.get('/Syllabus/*', syllabus.gettool);
-
+app.use('/EvalTool', require('./EvalTool/'));
 
 app.listen(8080, function() {
   console.log('Server running at http://127.0.0.1:8080/');
 });
+
