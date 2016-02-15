@@ -6,13 +6,13 @@ var router = module.exports = express.Router();
 
 var answerKey = 'AAAAAAAAAA'.split('');
 
-app.get('/question/:id', function(req, res, next) {
+router.get('/question/:id', function(req, res, next) {
   res.sendFile(path.join(__dirname, 'question-'+req.param.id+'.html'));
 });
 
 var tScore = 0;
 
-app.post('/submit', function(req, res, next) {
+router.post('/submit', function(req, res, next) {
   var score = req.body.answers
     .map(function(x,i) {return x === answerKey[i];})
     .reduce(function(score, correct) {
@@ -28,7 +28,7 @@ app.post('/submit', function(req, res, next) {
 var nodemailer = require('nodemailer');
 var emailTransport = nodemailer.createTransport();
 
-app.post('/email', function(req, res, next) {
+router.post('/email', function(req, res, next) {
   var form = {
     fromName: req.body.fname,
     fromEmail: req.body.femail,
