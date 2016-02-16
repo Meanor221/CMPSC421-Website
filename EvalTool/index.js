@@ -5,15 +5,31 @@ var express = require('express');
 var router = module.exports = express.Router();
 
 var answerKey = 'AAAAAAAAAA'.split('');
+var clientKey = '          '.split('');
 
-router.get('/question/:id', function(req, res, next) {
-  res.sendFile(path.join(__dirname, 'question-'+req.param.id+'.html'));
+router.get('/questions/:id', function(req, res, next) {
+  var id = parseInt(req.params.id, 10);
+  var answer = clientKey[id];
+  fs.readFile(path.join(__dirname, 'question-'+id+'.html'), function(error, data) {
+    if(error) return next(error);
+    res.send(data
+      .replace("value='"+id+"'", "value='"+id+"' checked")
+      .replace('value="'+id+'"', 'value="'+id+'" checked'));
+  });
+});
+
+router.post('/questions/:id', function(req, res, next) {
+  var id = parseInt(req.params.id, 10);
+  clientKey[id] = req.body.answer;
+  var nextId = id + 1;
+  if(nextId === 10) return res.redirect('/submit');
+  res.redirect('/questions/'+nextId);
 });
 
 var tScore = 0;
 
-router.post('/submit', function(req, res, next) {
-  var score = req.body.answers
+router.get('/submit', function(req, res, next) {
+  var score = clientKey
     .map(function(x,i) {return x === answerKey[i];})
     .reduce(function(score, correct) {
       return correct ? (score + 1) : score;
@@ -28,7 +44,7 @@ router.post('/submit', function(req, res, next) {
 var nodemailer = require('nodemailer');
 var emailTransport = nodemailer.createTransport();
 
-router.post('/email', function(req, res, next) {
+router.post('/submit', function(req, res, next) {
   var form = {
     fromName: req.body.fname,
     fromEmail: req.body.femail,
