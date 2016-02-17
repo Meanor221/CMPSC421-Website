@@ -7,10 +7,14 @@ var router = module.exports = express.Router();
 var answerKey = 'BADABDBABA'.split('');
 var clientKey = '          '.split('');
 
+router.get('/', function(req, res, next) {
+  res.redirect('questions/1');
+});
+
 router.get('/questions/:id', function(req, res, next) {
   var id = parseInt(req.params.id, 10);
   var answer = clientKey[id];
-  fs.readFile(path.join(__dirname, 'question-'+id+'.html'), function(error, data) {
+  fs.readFile(path.join(__dirname, 'Q'+id+'.html'), 'utf8', function(error, data) {
     if(error) return next(error);
     res.send(data
       .replace("value='"+id+"'", "value='"+id+"' checked")
@@ -22,7 +26,7 @@ router.post('/questions/:id', function(req, res, next) {
   var id = parseInt(req.params.id, 10);
   clientKey[id] = req.body.answer;
   var nextId = id + 1;
-  if(nextId === 10) return res.redirect('/submit');
+  if(nextId >= 10) return res.redirect('/submit');
   res.redirect('/questions/'+nextId);
 });
 

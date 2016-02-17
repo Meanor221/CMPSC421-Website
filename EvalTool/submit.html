@@ -7,7 +7,7 @@
 <div id="Contact">
 <body>
     <h1>Evaluation Feedback</h1>
-    <form action="http://127.0.0.1:8080/EvalTool/email" method="post">
+    <form method="post">
         
             <label for="name">From Name:</label>
             <input type="text" id="fname" name="fname" placeholder="Enter your full name" />
@@ -24,7 +24,7 @@
             <label for="subject">Subject:</label>
             <input type="text" id="subject" name = "subject" placeholder="Enter subject" />
 			<br><hr>
-	    <label for="score">Your final score: </label>
+	    <label for="score">Your final score: $SCORE$/10</label>
 			<br>
             <input type="submit" value="Send Emails" />
         
