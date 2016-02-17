@@ -4,7 +4,7 @@ var path = require('path');
 var express = require('express');
 var router = module.exports = express.Router();
 
-var answerKey = 'AAAAAAAAAA'.split('');
+var answerKey = 'BADABDBABA'.split('');
 var clientKey = '          '.split('');
 
 router.get('/questions/:id', function(req, res, next) {
