@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<body>
+ <fieldset>
+	<h1>Navigation</h1>
+	<form action="email.html">
+		<input id="previous"  type="button" onclick="navBack()" value="Previous" disabled=true/>
+		<a href='/EvalTool/question/'
+		<input id="next" type="button" onclick="navForward()" value="Next"/>
+	</form>
+ </fieldset>
+
+
+<script>
+	/* 
+	Used by both functions to know which question 
+	the user is on.
+	*/
+	var counter=0;
+
+	/* 
+	Used when the next button is pressed on the last question
+	the type is converted to submit and is moved to emailsubmit page
+	*/
+	function navForward() {
+		counter++;
+		switch(counter) {
+			case 1:
+	 		 document.getElementById("previous").disabled=false;
+			 /*window.open()*/
+	 		 break;
+	 		case 2:
+			 /*window.open()*/
+			 break;
+			case 3:
+			 /*window.open()*/
+			 break;
+			case 4:
+			 /*window.open()*/
+			 break;
+			case 5:
+			 /*window.open()*/
+			 break;
+			case 6:
+			 /*window.open()*/
+			 break;
+			case 7:
+			 /*window.open()*/
+			 break;
+			case 8:
+			 /*window.open()*/
+			 break;
+			case 9:
+			 document.getElementById("next").value="Submit";
+			 /*window.open()*/
+			 break;
+			case 10:
+			 document.getElementById("next").setAttribute('type', 'submit');
+			 /*window.open()*/
+			 break;
+		}
+	}
+
+	/*
+	Used when the previous button is displayed and changes value of
+	next back to next and disables the previous button when appropriate
+	*/
+	function navBack() {
+		counter--;
+		switch(counter) {
+			case 0:
+		 	 document.getElementById("previous").disabled=true;
+			 /*window.open()*/
+		 	 break;
+			case 1:
+		 	 /*window.open()*/
+		 	 break;
+			case 2:
+			 /*window.open()*/
+		 	 break;
+			case 3:
+			 /*window.open()*/
+		 	 break;
+			case 4:
+			 /*window.open()*/
+		 	 break;
+			case 5:
+			 /*window.open()*/
+		 	 break;
+			case 6:
+			 /*window.open()*/
+		 	 break;
+			case 7:
+			 /*window.open()*/
+		 	 break;
+			case 8:
+			 document.getElementById("next").value="Next";
+			 /*window.open()*/
+		 	 break;
+		 	case 9:
+		 	 /*window.open()*/
+		 	 break;
+		}
+	}
+</script>
+</body>
+</head>
+</html>
