@@ -5,9 +5,15 @@
  <fieldset>
 	<h1>Navigation</h1>
 	<form action="email.html">
+		<input id="start" type="button" value="Start">
+		<br>
 		<input id="previous"  type="button" onclick="navBack()" value="Previous" disabled=true/>
-		<a href='/EvalTool/question/'
+		<br>
 		<input id="next" type="button" onclick="navForward()" value="Next"/>
+		<br>
+		<input id="submit" type="submit" value="Submit" disabled=true/>
+		<br>
+		<input id="email" type="submit" value="Email" disabled=true/>
 	</form>
  </fieldset>
 
@@ -28,10 +34,11 @@
 		switch(counter) {
 			case 1:
 	 		 document.getElementById("previous").disabled=false;
+			 document.getElementById("start").disabled=true;
 			 /*window.open()*/
 	 		 break;
 	 		case 2:
-			 /*window.open()*/
+			 /*JSONP call user id, user answer, question theyre on, direction*/
 			 break;
 			case 3:
 			 /*window.open()*/
