@@ -4,16 +4,16 @@
 <body>
  <fieldset>
 	<h1>Navigation</h1>
-	<form action="email.html">
+	<form action="submit.html">
 		<input id="start" type="button" value="Start">
-		<br>
+		<br> <br>
 		<input id="previous"  type="button" onclick="navBack()" value="Previous" disabled=true/>
-		<br>
+		<br> <br>
 		<input id="next" type="button" onclick="navForward()" value="Next"/>
-		<br>
-		<input id="submit" type="submit" value="Submit" disabled=true/>
-		<br>
-		<input id="email" type="submit" value="Email" disabled=true/>
+		<br> <br>
+		<input id="submit" type="submit" onclick="submitClick()" value="Submit" disabled=true/>
+		<br> <br>
+		<input id="email" type="submit" onclick="emailClick()" value="Email" disabled=true/>
 	</form>
  </fieldset>
 
@@ -31,42 +31,24 @@
 	*/
 	function navForward() {
 		counter++;
-		switch(counter) {
-			case 1:
-	 		 document.getElementById("previous").disabled=false;
-			 document.getElementById("start").disabled=true;
-			 /*window.open()*/
-	 		 break;
-	 		case 2:
-			 /*JSONP call user id, user answer, question theyre on, direction*/
-			 break;
-			case 3:
-			 /*window.open()*/
-			 break;
-			case 4:
-			 /*window.open()*/
-			 break;
-			case 5:
-			 /*window.open()*/
-			 break;
-			case 6:
-			 /*window.open()*/
-			 break;
-			case 7:
-			 /*window.open()*/
-			 break;
-			case 8:
-			 /*window.open()*/
-			 break;
-			case 9:
-			 document.getElementById("next").value="Submit";
-			 /*window.open()*/
-			 break;
-			case 10:
-			 document.getElementById("next").setAttribute('type', 'submit');
-			 /*window.open()*/
-			 break;
-		}
+        var a = document.querySelector("input[name=ans]:checked");
+        document.getElementById("start").disabled=true;
+        if(counter >= 2)
+            {
+                document.getElementById("previous").disabled=false;
+			     /*JSONP call user id, user answer, question theyre on, direction*/  
+            }
+        if(counter == 10)
+            {
+                document.getElementById("submit").disabled=false;
+                document.getElementById("email").disabled=false;
+                document.getElementById("next").disabled=true;
+            }
+        var script = document.createElement("script");
+        script.src="/EVALJSONP/next";
+        script.src += "?callback=question&userid=" + sessionStorage.getItem("userid") +"&question=" + counter;
+        if(a)
+            script.src="&ans=" + a.Value;
 	}
 
 	/*
@@ -75,40 +57,36 @@
 	*/
 	function navBack() {
 		counter--;
-		switch(counter) {
-			case 0:
-		 	 document.getElementById("previous").disabled=true;
-			 /*window.open()*/
-		 	 break;
-			case 1:
-		 	 /*window.open()*/
-		 	 break;
-			case 2:
-			 /*window.open()*/
-		 	 break;
-			case 3:
-			 /*window.open()*/
-		 	 break;
-			case 4:
-			 /*window.open()*/
-		 	 break;
-			case 5:
-			 /*window.open()*/
-		 	 break;
-			case 6:
-			 /*window.open()*/
-		 	 break;
-			case 7:
-			 /*window.open()*/
-		 	 break;
-			case 8:
-			 document.getElementById("next").value="Next";
-			 /*window.open()*/
-		 	 break;
-		 	case 9:
-		 	 /*window.open()*/
-		 	 break;
+		if(counter )
+            {
+                document.getElementById("previous").disabled=true;
+			     /*JSONP call user id, user answer, question theyre on, direction*/
+            }
+        if(counter < 10)
+            {
+                document.getElementById("submit").disabled=true;
+                document.getElementById("email").disabled=true;
+                document.getElementById("next").disabled=false;
+            }
+        var script = document.createElement("script");
+        script.src="/EVALJSONP/prev";
+        script.src += "?callback=question&userid=" + sessionStorage.getItem("userid") +"&question=" + counter;
+        if(a)
+            script.src="&ans=" + a.Value;
 		}
+    function question(res)
+    {
+        
+    }
+    
+    function submitClick()
+    {
+        
+    }
+    
+    function emailClick()
+    {
+        
 	}
 </script>
 </body>
