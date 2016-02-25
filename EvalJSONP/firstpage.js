@@ -1,7 +1,10 @@
+
+var baseUrl = '/EvalTool';
+
 addEventListener("load", function() {
 	// Set the side frame to our navigation page.
 	var sideFrameWin = parent.document.getElementById("sframe").contentWindow;
-          sideFrameWin.location = "/EvalJSONP/side.html";
+          sideFrameWin.location = baseUrl+"/side.html";
 
     // Create the userID.
     createID();
@@ -34,7 +37,7 @@ function createID() {
 
 	// Create a JSONP request asking for an ID.
 	var script = document.createElement("SCRIPT");
-	script.src = "/EvalJSONP/getID" + "?callback=createID.receiveID";
+	script.src = baseUrl+"/getID" + "?callback=createID.receiveID";
 	document.body.appendChild(script);
 
 	// Define the callback function.

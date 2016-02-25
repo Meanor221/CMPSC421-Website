@@ -1,3 +1,6 @@
+
+var baseUrl = '/EvalTool';
+
 $(document).ready(function() {
 	// Add hover functionality to each button.
 	var buttons = $("button");
@@ -17,10 +20,11 @@ $(document).ready(function() {
 });
 
 function start() {
-	parent.document.getElementById("cframe").contentWindow.location = "/EvalJSONP/evaltool.html";
+  var cWindow = parent.document.getElementById("cframe").contentWindow;
+	cWindow.location = baseUrl+"/evaltool.html";
 
 	// Give the document some time to load the new page and load the first question.
-	setTimeout(first, 100);
+	setTimeout(first, 1000);
 
 	// Animate the start button out.
 	$("#startButton").slideUp("fast");
@@ -37,7 +41,7 @@ function first() {
 	var answer = parent.document.getElementById("cframe").contentDocument.querySelector("input:checked");
 
 	var script = document.createElement("SCRIPT");
-	script.src = "/EvalJSONP/first"
+	script.src = baseUrl+"/first"
 		+ "?callback=loadQuestion&userID="
 		+ sessionStorage.getItem("userID");
 
@@ -52,7 +56,7 @@ function previous() {
 	var answer = parent.document.getElementById("cframe").contentDocument.querySelector("input:checked");
 
 	var script = document.createElement("SCRIPT");
-	script.src = "/EvalJSONP/previous"
+	script.src = baseUrl+"/previous"
 		+ "?callback=loadQuestion&userID="
 		+ sessionStorage.getItem("userID");
 
@@ -67,7 +71,7 @@ function next(){
 	var answer = parent.document.getElementById("cframe").contentDocument.querySelector("input:checked");
 
 	var script = document.createElement("SCRIPT");
-	script.src = "/EvalJSONP/next"
+	script.src = baseUrl+"/next"
 		+ "?callback=loadQuestion&userID="
 		+ sessionStorage.getItem("userID");
 
@@ -82,7 +86,7 @@ function last(){
 	var answer = parent.document.getElementById("cframe").contentDocument.querySelector("input:checked");
 
 	var script = document.createElement("SCRIPT");
-	script.src = "/EvalJSONP/last"
+	script.src = baseUrl+"/last"
 		+ "?callback=loadQuestion&userID="
 		+ sessionStorage.getItem("userID");
 
@@ -102,7 +106,7 @@ function done(){
     var req = new XMLHttpRequest();
     
     // Open the request.
-    req.open('POST', '/EvalJSONP/submitQuiz');
+    req.open('POST', baseUrl+'/submitQuiz');
     
     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
     
@@ -130,7 +134,7 @@ function done(){
         sessionStorage.setItem("grade", req.responseText);
         
         // Redirect the content frame to the evaluation page.
-        parent.document.getElementById("cframe").contentWindow.location = "/EvalJSONP/evaluation.html";
+        parent.document.getElementById("cframe").contentWindow.location = baseUrl+"/evaluation.html";
         
         // Remove the navigation buttons.
         $("#quizNav").slideUp();

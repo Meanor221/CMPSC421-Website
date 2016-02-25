@@ -1,3 +1,6 @@
+
+var path = require('path');
+
 var nodemailer = require('nodemailer'); //for sending the quiz score via email
 var smtpTransport = nodemailer.createTransport(); //
 /**
@@ -84,32 +87,38 @@ function gettool(req, res) {
 	var userID = req.query.userID;
 
 	switch (req.path) {
-		case "/EvalJSONP/getID":
+		case "/EvalTool/getID":
 			res.jsonp(JSON.stringify(addUser())); //add the user and send them their ID
 			break;
 		
-		case "/EvalJSONP/next":
+    case "/EvalTool/first":
+      sendQuestion(userID, res);
+      break;
+
+		case "/EvalTool/next":
 			updateUser(req.query.userID, req.query.answer, "next");
 			sendQuestion(userID, res, "next");
 			break;
-		case "/EvalJSONP/previous":
+		case "/EvalTool/previous":
 			updateUser(req.query.userID, req.query.answer, "previous");
 			sendQuestion(userID, res, "previous");
 			break;
 		
 		default:
 			// Retrieve the file path.
-			var filename = gettool.root + req.path;
-
+			var file = path.basename(req.path);
+      if(file === 'EvalTool') file = 'firstpage.html';
+      var filepath = path.join(__dirname, file);
+      
 			// Send the file as a response.
-			res.sendfile(filename, function(err) {
+			res.sendFile(filepath, function(err) {
 				// Log any error.
 				if (err) {
 					console.log(err);
 					res.status(err.status).end();
 				}
 				else
-					console.log("Sent " + filename);
+					console.log("Sent " + filepath);
 			});
 			break;
 	}
@@ -122,7 +131,7 @@ function posttool(req, res) {
     // Determine what is being posted.
 	switch (req.path) {
         // Posted when the quiz is complete and should be graded.
-        case "/EvalJSONP/submitQuiz":
+        case "/EvalTool/submitQuiz":
             // Check if one last answer was submitted.
             if (req.body.answer)
                 updateUser(req.body.userID, req.body.answer, "first");
@@ -135,7 +144,7 @@ function posttool(req, res) {
             break;
             
         // Posted when an email should be sent.
-        case "/EvalJSONP/sendMail":
+        case "/EvalTool/sendMail":
             var mymail = {};
             // Set the sender's and recipients' address.
             mymail['from'] = req.body.sender_name+"<"+req.body.sender_email+">";

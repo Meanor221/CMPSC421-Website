@@ -68,9 +68,14 @@ app.get('/CloudChat/*', ChatServer.gettool);
 app.get('/Syllabus/*', syllabus.gettool);
 
 var useJSONP = true;
-app.use('/EvalTool', useJSONP
-  ? require('./EvalJSONP/')
-  : require('./EvalTool/'));
+if(useJSONP) {
+  var evalJSONP = require('./EvalJSONP/EvalJSONP');
+  evalJSONP.gettool.root = __dirname;
+  app.get('/EvalTool/*', evalJSONP.gettool);
+  app.post('/EvalTool/*', evalJSONP.posttool);
+} else {
+  app.use('/EvalTool', require('./EvalTool/'));
+}
 
 app.listen(8080, function() {
   console.log('Server running at http://127.0.0.1:8080/');
