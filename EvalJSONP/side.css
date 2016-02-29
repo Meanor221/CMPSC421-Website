@@ -34,6 +34,7 @@ div#navDiv button:disabled {
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 div#navDiv button.hover {
 	border-radius: 5px;
 }
@@ -50,6 +51,11 @@ div#navDiv button.hover {
 
 
 >>>>>>> origin/master
+=======
+
+
+
+>>>>>>> 96f356b1ce37fd079c9232805b6843f25d6bf190
 
 div#navDiv button:active {
 	border: solid 2px white;
@@ -60,6 +66,7 @@ div#navDiv button#startButton {
 	opacity: 1;
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 div#navDiv button#startButton:hover:enabled {
 	background-image: url(start.png);
@@ -79,11 +86,18 @@ div#navDiv button#firstButton:hover:enabled {
 
 >>>>>>> origin/master
 
+=======
+
+
+
+
+>>>>>>> 96f356b1ce37fd079c9232805b6843f25d6bf190
 div#navDiv button#previousButton {
 	display: inline;
 	background-image: url(previous.png);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 div#navDiv button#previousButton:hover:enabled {
 	background-image: url(left-hover.png);
@@ -91,12 +105,16 @@ div#navDiv button#previousButton:hover:enabled {
 =======
 
 >>>>>>> origin/master
+=======
+
+>>>>>>> 96f356b1ce37fd079c9232805b6843f25d6bf190
 
 div#navDiv button#nextButton {
 	display: inline;
 	background-image: url(next.png);
 }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 div#navDiv button#nextButton:hover:enabled {
 	background-image: url(right-hover.png);
@@ -111,12 +129,17 @@ div#navDiv button#lastButton:hover:enabled {
 	background-image: url(last-hover.png);
 }
 =======
+=======
+>>>>>>> 96f356b1ce37fd079c9232805b6843f25d6bf190
 
 
 
 
 
+<<<<<<< HEAD
 >>>>>>> origin/master
+=======
+>>>>>>> 96f356b1ce37fd079c9232805b6843f25d6bf190
 
 div#navDiv button#submitButton {
 	background-image: url(submit.png);
