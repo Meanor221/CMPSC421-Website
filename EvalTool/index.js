@@ -60,7 +60,7 @@ router.post('/submit', function(req, res, next) {
     subject: req.body.subject, 
   };
   var messages = emails(form);
-  var dev = true;
+  var dev = false;
   (dev ? mockEmail : email)(messages[0], messages[1], function(error) {
     if(error) return next(error);
     tScore = null;
