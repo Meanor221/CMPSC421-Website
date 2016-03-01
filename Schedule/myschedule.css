@@ -1,0 +1,94 @@
+
+h1, h2 {
+  text-align: center;
+}
+
+h1 {
+  padding-top: 20px;
+  margin-bottom: 0px;
+  font-size: 25px;
+}
+h2 {
+  margin-top: 0px;
+  font-size: 18px;
+}
+
+#schedule {
+  background-color: #DAEEF3;
+}
+
+#schedule table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+/* #schedule table, */
+#schedule th,
+#schedule td {
+  border: 1px solid #000;
+  padding: 0px 5px;
+  white-space: nowrap;
+}
+
+#schedule th {
+  background-color: #0070C0;
+  color: #fff;
+  font-style: italic;
+}
+
+.class-row {
+  
+}
+
+.class-row--stripe-on td:nth-child(1),
+.class-row--stripe-on td:nth-child(2),
+.class-row--stripe-on .class-cell--tag {
+  background-color: #fff;
+}
+
+.class-row--stripe-off td:nth-child(1),
+.class-row--stripe-off td:nth-child(2),
+.class-row--stripe-off .class-cell--tag {
+  background-color: #D9D9D9;
+}
+
+.class-row--lab {
+  background-color: #FDE9D9;
+}
+
+.class-row--quiz td:last-child {
+  color: red;
+}
+
+.class-row--final td {
+  background-color: #E5DFEB;
+}
+
+.class-row--masthead {
+  background-color: #595959;
+  color: #DCDCDC;
+  font-weight: bold;
+  text-align: center;
+}
+
+.class-cell {
+
+}
+
+.class-cell--tag {
+  white-space: normal !important;
+}
+
+.class-cell--lab {
+  font-style: italic;
+}
+
+.class-cell--team-cal,
+.class-cell--work-day {
+  font-weight: bold;
+}
+
+.class-cell--team-cal {
+  color: #C00022;
+}
+

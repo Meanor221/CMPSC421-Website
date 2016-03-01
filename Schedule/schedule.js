@@ -1,4 +1,9 @@
-var schedule[44][5];
+
+var schedule = module.exports = [];
+for(var i = 0; i < 44; i++) {
+  schedule[i] = [];
+}
+
 //Class 1
 schedule[0][0]="1";
 schedule[0][1]="M: 1/11";
@@ -90,7 +95,7 @@ schedule[10][5]="Quiz3";
 
 //Class 12
 schedule[11][0]="9";
-schedule[11]="M: 2/8";
+schedule[11][1]="M: 2/8";
 schedule[11][2]="Event"
 schedule[11][3]="Advanced Javascript: event handling"
 schedule[11][4]="Scripting client"
@@ -174,7 +179,7 @@ schedule[21][1]="W: 3/2";
 schedule[21][2]="HTML Media & Graphics"
 schedule[21][3]="Graphics in canvas"
 schedule[21][4]=""
-schedule[21][5]="david 21";
+schedule[21][5]="David 21";
 
 //Class 23
 schedule[22][0]="";
@@ -254,7 +259,7 @@ schedule[31][1]="F: 4/1";
 schedule[31][2]=""
 schedule[31][3]="Lab10: RESTful Web Services (MVC)"
 schedule[31][4]="RESTful service with MVC"
-schedule[31][5]="";
+schedule[31][5]="Quiz10";
 
 //Class 33
 schedule[32][0]="23";
@@ -348,6 +353,7 @@ schedule[42][5]="";
 schedule[43][0]="";
 schedule[43][1]="F: 4/29";
 schedule[43][2]="Project"
-schedule[43][3]="Final project presentation"
+schedule[43][3]="Final project presentation; Course Review"
 schedule[43][4]=""
 schedule[43][5]="";
+
