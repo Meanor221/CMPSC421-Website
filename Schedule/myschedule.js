@@ -2,6 +2,14 @@
 var $schedule = $('#schedule');
 var scheduleJson = null;
 
+var baseUrl = '/Schedule';
+
+addEventListener("load", function() {
+	// Set the side frame to our navigation page.
+	var sideFrameWin = parent.document.getElementById("sframe").contentWindow;
+          sideFrameWin.location = baseUrl+"/side.html";
+});
+
 $.get('schedule.json', function(data) {
   scheduleJson = data;
   $schedule.html(scheduleHtml(scheduleJson));
