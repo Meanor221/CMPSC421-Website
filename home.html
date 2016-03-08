@@ -26,13 +26,66 @@
     }
     </script>
 
-<script src="/clock.js">
-	</script>
-</head>
-<body>
+    <script src="/clock.js"></script>
+    <style>
+      #face {fill: #fff; stroke: #000; stroke-width: 1;}
+      #ticks line {stroke: #000;}
+      #hourhand {stroke: #000; stroke-width: 2;}
+      #minutehand {stroke: rgba(0,0,0,0.8); stroke-width: 2;}
+    </style>
+  </head>
+  <body>
 
     <div id="navigationbar">
-	<div id="clock" style= "position: fixed; top: 10px; right: 10px;">
+    <div class='clock-container' style="position: fixed; top: 10px; right: 10px;">
+<svg id="clock" viewBox="0 0 100 100" width="80" height="80">
+  <!-- <defs> <1!-- Define a fitter far drop-shadows --1> -->
+  <!-- <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%"> -->
+  <!-- <feGaussianBlur in="SourceA1pha" stheviation="1" resu1t="b1ur" /> -->
+  <!-- <feOffset in="blur" dx="1" dy="1" result="shadow" /> -->
+
+  <!-- <feMerge> -->
+  <!-- <feMergeNode in="SourceGraphic"/><feMergeNode in="shadow"/> -->
+  <!-- </feMerge> -->
+  <!-- </filter> -->
+  <!-- </defs> -->
+  <circle id="face" cx="50" cy="50" r="45"/> <!-- the cLock face -->
+  <g id="ticks"> <!-- 12 hour tick marks -->
+    <line x1='50' y1='5.000' x2='50.00' y2='10.00'/>
+    <line x1='72.50' y1='11.03' x2='70.00' y2='15.36'/>
+    <line x1='88.97' y1='27.50' x2='84.64' y2='30.00'/>
+    <line x1='95.00' y1='50.00' x2='90.00' y2='50.00'/>
+    <line x1='88.97' y1='72.50' x2='84.64' y2='70.00'/>
+    <line x1='72.50' y1='88.97' x2='70.00' y2='84.64'/>
+    <line x1='50.00' y1='95.00' x2='50.00' y2='90.00'/>
+    <line x1='27.50' y1='88.97' x2='30.00' y2='84.64'/>
+    <line x1='11.03' y1='72.50' x2='15.36' y2='70.00'/>
+    <line x1='5.000' y1='50.00' x2='10.00' y2='50.00'/>
+    <line x1='11.03' y1='27.50' x2='15.36' y2='30.00'/>
+    <line x1='27.50' y1='11.03' x2='30.00' y2='15.36'/>
+  </g>
+
+  <g id="numbers"> <!-- Namber the cardinaL directior -->
+    <text x="38" y="28">12</text>
+    <text x="75" y="57">3</text>
+    <text x="45" y="84">6</text>
+    <text x="15" y="57">9</text>
+    <!-- <text x="50" y="18">12</text> -->
+    <!-- <text x="85" y="53">3</text> -->
+    <!-- <text x="50" y="88">6</text> -->
+    <!-- <text x="15" y="53">9</text> -->
+  </g>
+
+  <!-- Draw hands pointing straight up. we rotate them in the code. -->
+  <g id="hands"> <!-- Add shadows to the hands -->
+    <line id="hourhand" x1="50" y1="50" x2="50" y2="30"/>
+    <line id="minutehand" x1="50" y1="50" x2="50" y2="20"/>
+  </g>
+
+</svg>
+  </div>
+
+	<div id="clock" style="position: fixed; top: 10px; right: 10px;">
 	</div>
         <a href="/"><img src="/ThreeRegion/logo.png" alt="webapplication logo"/></a>
 
@@ -47,6 +100,9 @@
         </span>
         <span class="topnavigationlink">
             <a href="/EvalTool/" target="cframe" id="evaltool">EvalTool</a>
+        </span>
+        <span class="topnavigationlink">
+            <a href="/CanvasAnimation/" target="cframe" id="animation">Relax</a>
         </span>
         <span class="topnavigationlink">
             <a href="/CloudChat/firstpage.html" target="cframe">CloudChat</a>
