@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Lecture Notes</title>
+    <link rel='stylesheet' href='lecture-notes.css'/>
+  </head>
+  <body>
+    <ul class='note-list x-note-list'></ul>
+    <form class='note-create x-note-create'>
+      <label>
+        <span>Lecture Id</span>
+        <input class='textbox' type='text' name='lecture' placeholder='6'/>
+      </label>
+      <label>
+        <span>Slide Id</span>
+        <input class='textbox' type='text' name='slide' placeholder='2'/>
+      </label>
+      <label>
+        <span>Note</span>
+        <textarea class='textbox' name='text' placeholder='Type new note here'></textarea>
+      </label>
+      <input class='button button-primary' type='submit' value='Create note'/>
+    </form>
+    <script src="https://code.jquery.com/jquery-1.12.2.min.js" integrity="sha256-lZFHibXzMHo3GGeehn1hudTAP3Sc0uKXBXAzHX1sjtk=" crossorigin="anonymous"></script>
+    <script src='lecture-notes.js'></script>
+  </body>
+</html>
+

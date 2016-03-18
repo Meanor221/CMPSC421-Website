@@ -1,0 +1,32 @@
+
+.note-list {
+  margin: 0px;
+  padding: 0px;
+  list-style-type: none;
+}
+
+.note {
+  display: block;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.note p {
+  color: #444; 
+}
+
+.note span {
+  color: #777;
+  font-size: 0.9em;
+  margin-right: 5px;
+}
+
+.x-note-delete {
+  color: #08f !important;
+  cursor: pointer;
+}
+
+.x-note-delete:hover {
+  text-decoration: underline;
+}
+
