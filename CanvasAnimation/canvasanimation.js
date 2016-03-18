@@ -113,7 +113,7 @@ addEventListener("load", function() {
         imgs[i].src = "/CanvasAnimation/" + flagNames[i] + "_flag.png";
         imgs[i].onload = function() {
             if (--readyImgs == 0) {
-                makeFlags(2, 12, 0.5, 5, 1);
+                makeFlags(3, 12, 0.5, 5, 1);
             }
         }
     }
