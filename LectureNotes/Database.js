@@ -26,6 +26,9 @@ function openDatabase()
     request.onupgradeneeded = function(event)
     {
         var objectStore = db.createObjectStore("notes", { keyPath: "NoteID"});
+        objectStore.createIndex('lectureID', 'lectureID', { unique: false});
+        objectStore.createIndex('slideID', 'slideID', { unique: false});
+        objectStore.createIndex('note', 'note', { unique: false});
     }
 }
 
