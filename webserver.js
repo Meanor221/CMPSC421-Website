@@ -5,11 +5,13 @@ var bodyParser  = require('body-parser');
 var ChatServer  = require('./CloudChat/ChatServer');
 var syllabus  = require('./Syllabus/syllabus');
 var canvasanimation = require('./CanvasAnimation/tool.js');
+var lecturenotes = require('./LectureNotes/tool.js');
 //setup the root path
 var root = __dirname;
 ChatServer.gettool.root = root;
 syllabus.gettool.root = root;
 canvasanimation.gettool.root = root;
+lecturenotes.gettool.root = root;
 var app     = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -67,6 +69,7 @@ function threeregion(req, res) {
 app.get('/CloudChat/*', ChatServer.gettool);
 app.get('/Syllabus/*', syllabus.gettool);
 app.get("/CanvasAnimation/*", canvasanimation.gettool);
+app.get("/LectureNotes/*", lecturenotes.gettool);
 var useJSONP = true;
 if(useJSONP) {
   var evalJSONP = require('./EvalJSONP/EvalJSONP');
