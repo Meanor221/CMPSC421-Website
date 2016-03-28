@@ -1,0 +1,14 @@
+<div>
+  <fieldset>
+    <legend>RESTful</legend>
+    <button id='jsp'>RosterJSP</button>
+    <script>
+      document.getElementById('jsp').onclick = function() {
+        parent.document.getElementById("cframe").contentDocument.location = "/WebServices/rosterJSP";
+      };
+    </script>
+
+    <button>RosterMVC</button>
+  </fieldset>
+</div>
+

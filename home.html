@@ -105,8 +105,13 @@
             <a href="/CanvasAnimation/canvasanimation.html" target="cframe" id="animation">Relax</a>
         </span>
         <span class="topnavigationlink">
-            <a href="/LectureNotes/" target="cframe" id="notes">Lecture Notes</a>
+            <a href="/WebServices/" target="cframe" id="services">Web Services</a>
         </span>
+        <script>
+          document.getElementById('services').onclick = function() {
+            document.getElementById("sframe").contentDocument.location = "/WebServices/side.html";
+          };
+        </script>
         <span class="topnavigationlink">
             <a href="/CloudChat/firstpage.html" target="cframe">CloudChat</a>
         </span>

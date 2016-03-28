@@ -83,8 +83,10 @@ if(useJSONP) {
 app.use('/Schedule', require('./Schedule'));
 app.use('/CanvasAnimation', require('./CanvasAnimation'));
 app.use('/LectureNotes', require('./LectureNotes'));
+app.use('/WebServices', require('./WebServices'));
 
-app.listen(8080, function() {
-  console.log('Server running at http://127.0.0.1:8080/');
+var port = 8888;
+app.listen(port, function() {
+  console.log('Server running at http://127.0.0.1:'+port+'/');
 });
 
