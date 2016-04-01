@@ -6,12 +6,14 @@ var ChatServer  = require('./CloudChat/ChatServer');
 var syllabus  = require('./Syllabus/syllabus');
 var canvasanimation = require('./CanvasAnimation/tool.js');
 var lecturenotes = require('./LectureNotes/tool.js');
+var services = require('./Services/tool.js');
 //setup the root path
 var root = __dirname;
 ChatServer.gettool.root = root;
 syllabus.gettool.root = root;
 canvasanimation.gettool.root = root;
 lecturenotes.gettool.root = root;
+services.gettool.root = root;
 var app     = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -65,11 +67,14 @@ function threeregion(req, res) {
 	    }
 	  });
 }
-
+app.get('/WebRoster/Roster.jsp', function(req, res) {
+	res.redirect("http://localhost:8080/WebRoster/Roster.jsp");
+});
 app.get('/CloudChat/*', ChatServer.gettool);
 app.get('/Syllabus/*', syllabus.gettool);
 app.get("/CanvasAnimation/*", canvasanimation.gettool);
 app.get("/LectureNotes/*", lecturenotes.gettool);
+app.get("/Services/*", services.gettool);
 var useJSONP = true;
 if(useJSONP) {
   var evalJSONP = require('./EvalJSONP/EvalJSONP');
@@ -83,10 +88,8 @@ if(useJSONP) {
 app.use('/Schedule', require('./Schedule'));
 app.use('/CanvasAnimation', require('./CanvasAnimation'));
 app.use('/LectureNotes', require('./LectureNotes'));
-app.use('/WebServices', require('./WebServices'));
 
-var port = 8888;
-app.listen(port, function() {
-  console.log('Server running at http://127.0.0.1:'+port+'/');
+app.listen(8888, function() {
+  console.log('Server running at http://127.0.0.1:8888/');
 });
 
