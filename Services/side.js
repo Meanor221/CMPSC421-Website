@@ -20,3 +20,9 @@ function rosterJSP()
 {
 	parent.document.getElementById("cframe").contentWindow.location = "http://localhost:8888/WebRoster/Roster.jsp"
 }
+
+function rosterMVC()
+{
+	parent.document.getElementById("cframe").contentWindow.location = "http://localhost:8888/WebRosterMVC/Roster.jsp"
+}
+

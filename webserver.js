@@ -70,6 +70,9 @@ function threeregion(req, res) {
 app.get('/WebRoster/Roster.jsp', function(req, res) {
 	res.redirect("http://localhost:8080/WebRoster/Roster.jsp");
 });
+app.get('/WebRosterMVC/Roster.jsp', function(req, res) {
+  res.redirect("http://localhost:8080/WebRosterMVC/Roster.jsp")
+});
 app.get('/CloudChat/*', ChatServer.gettool);
 app.get('/Syllabus/*', syllabus.gettool);
 app.get("/CanvasAnimation/*", canvasanimation.gettool);
