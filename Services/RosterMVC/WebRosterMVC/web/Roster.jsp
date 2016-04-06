@@ -150,5 +150,7 @@
         </div>
         <table id="rosterTable">
         </table>
+        <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+        <script src='roster-crud.js'></script>
     </body>
 </html>
