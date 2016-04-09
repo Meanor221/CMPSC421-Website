@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+  <title>Amazon Book Search</title>
+  <link rel='stylesheet' href='amazon.css'/>
+</head>
+<body>
+  <span id='error'></span>
+  <form id='search' method='get' action=''>
+    <h1>Book search</h1>
+    <p>Find a book on Amazon by ISBN, Amazon ID, or title.</p>
+
+    <label>
+      <span>Access ID</span>
+      <input name='access' type='text' placeholder='Amazon access ID' required>
+    </label>
+
+    <label>
+      <span>Access ID</span>
+      <input name='secret' type='text' placeholder='Amazon secret ID' required>
+    </label>
+
+    <label>
+      <span>Search term</span>
+      <input name='search' type='text' placeholder='Search by ISBN, Amazon ID, or book title' required>
+    </label>
+
+    <input type='submit' value='search'/>
+  </form>
+
+  <ul id='results'></ul>
+  <ul id='template' class='hidden'>
+    <li>
+      <h1><a class='book-title'>{{book.title}}</a></h1>
+    </li>
+  </ul>
+
+  <script src='https://code.jquery.com/jquery-1.12.0.min.js'></script>
+  <script src='amazon-search.js'></script>
+</body>
+</html>
+

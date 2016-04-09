@@ -85,6 +85,8 @@ if(useJSONP) {
   app.use('/EvalTool', require('./EvalTool/'));
 }
 
+app.use('/AmazonBook', require('./AmazonBook'));
+
 app.use('/Schedule', require('./Schedule'));
 app.use('/CanvasAnimation', require('./CanvasAnimation'));
 app.use('/LectureNotes', require('./LectureNotes'));
