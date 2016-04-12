@@ -16,10 +16,15 @@
     </label>
 
     <label>
-      <span>Secret ID</span>
-      <input class='textbox' name='secret' type='text' placeholder='Amazon secret ID' required>
+      <span>Secret key</span>
+      <input class='textbox' name='secret' type='text' placeholder='Amazon secret key' required>
     </label>
 
+    <label>
+      <span>Associate ID</span>
+      <input class='textbox' name='associate' type='text' placeholder='Amazon Associates ID' required>
+    </label>
+    
     <label>
       <span>Search term</span>
       <input class='textbox' name='search' type='text' placeholder='Search by ISBN, Amazon ID, or book title' required>
@@ -32,6 +37,7 @@
   <ul id='template' class='hidden'>
     <li>
       <h1><a class='book-title'>{{book.title}}</a></h1>
+      <p class='book-author'>{{book.author}}</p>
     </li>
   </ul>
 

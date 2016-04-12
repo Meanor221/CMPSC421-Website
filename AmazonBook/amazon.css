@@ -81,3 +81,30 @@ form label span {
   color: #fff;
 }
 
+#results {
+  display: block;
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+#results li {
+  display: block;
+  padding: 20px 10px;
+}
+
+#results h1,
+#results p {
+  margin: 0px;
+  color: #222;
+}
+
+#results a {
+  text-decoration: none;
+  color: inherit;
+}
+
+#results a:hover {
+  text-decoration: underline;
+}
+

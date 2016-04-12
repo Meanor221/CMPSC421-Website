@@ -7,9 +7,10 @@ var aws = require('aws-lib');
 router.get('/search', function(req, res, next) {
   var access = req.query.access;
   var secret = req.query.secret;
+  var associate = req.query.associate;
   var search = req.query.search;
 
-  var client = aws.createProdAdvClient(access, secret);
+  var client = aws.createProdAdvClient(access, secret, associate);
   var query = {SearchIndex: 'Books'};
 
   // if(search.length === 10 || search.length === 13) {
