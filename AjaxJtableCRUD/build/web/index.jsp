@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <title>CRUD operations using jTable</title>
+    <title>Student Roster</title>
     <!-- Include one of jTable styles. -->
     <link href="css/lightcolor/blue/jtable.css" rel="stylesheet" type="text/css" />
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css" />
@@ -70,7 +70,7 @@
 <body>
     <div style="width: 80%; margin-right: 10%; margin-left: 10%; text-align: center;">
 
-        <h4>AJAX based CRUD operations using jQuery.jTable</h4>
+        <h4>Student Roster</h4>
         <div id="StudentTableContainer"></div>
     </div>
 </body>
